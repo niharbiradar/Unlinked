@@ -18,10 +18,10 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   };
 
   return (
-    <div className="card mb-6">
+    <div className="card mb-6 animate-fade-in">
       {/* Post content */}
       <div className="mb-4">
-        <p className="text-gray-900 leading-relaxed">{post.content}</p>
+        <p className="text-gray-100 leading-relaxed text-base">{post.content}</p>
       </div>
 
       {/* Tags */}
@@ -30,7 +30,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           {post.tags.map((tag, index) => (
             <span
               key={index}
-              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary-100 text-primary-800"
+              className="tag-modern"
             >
               #{tag}
             </span>
@@ -43,23 +43,23 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
         <div className="flex items-center space-x-4">
           {/* Reactions */}
           <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-1 text-gray-500 hover:text-primary-600 transition-colors duration-200">
+            <button className="reaction-btn">
               <HeartIcon className="h-4 w-4" />
-              <span className="text-sm">{post.reaction_counts.same}</span>
+              <span className="text-sm font-medium">{post.reaction_counts.same}</span>
             </button>
-            <button className="flex items-center space-x-1 text-gray-500 hover:text-primary-600 transition-colors duration-200">
+            <button className="reaction-btn">
               <HandThumbUpIcon className="h-4 w-4" />
-              <span className="text-sm">{post.reaction_counts.helpful}</span>
+              <span className="text-sm font-medium">{post.reaction_counts.helpful}</span>
             </button>
-            <button className="flex items-center space-x-1 text-gray-500 hover:text-primary-600 transition-colors duration-200">
+            <button className="reaction-btn">
               <ChatBubbleLeftIcon className="h-4 w-4" />
-              <span className="text-sm">{post.reaction_counts.upvote}</span>
+              <span className="text-sm font-medium">{post.reaction_counts.upvote}</span>
             </button>
           </div>
         </div>
 
         {/* Timestamp */}
-        <div className="text-sm text-gray-500">
+        <div className="text-sm text-gray-400">
           {formatDate(post.created_at)}
         </div>
       </div>

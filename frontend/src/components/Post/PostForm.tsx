@@ -43,24 +43,24 @@ const PostForm: React.FC<PostFormProps> = ({ onSubmit, isSubmitting = false }) =
   };
 
   return (
-    <div className="card mb-8">
+    <div className="card mb-8 animate-slide-up">
       <form onSubmit={handleSubmit}>
         {/* Error message */}
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-            <p className="text-red-600 text-sm">{error}</p>
+          <div className="mb-4 p-3 bg-gradient-to-r from-accent-600/20 to-accent-700/20 border border-accent-500/30 rounded-xl backdrop-blur-sm">
+            <p className="text-accent-300 text-sm">{error}</p>
           </div>
         )}
 
         {/* Content textarea */}
         <div className="mb-4">
-          <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="content" className="block text-sm font-medium text-gray-200 mb-2">
             Share your thoughts...
           </label>
           <textarea
             id="content"
             rows={4}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-none"
+            className="textarea-modern w-full"
             placeholder="What's on your mind about work, career, or professional life?"
             value={content}
             onChange={(e) => setContent(e.target.value)}
@@ -69,7 +69,7 @@ const PostForm: React.FC<PostFormProps> = ({ onSubmit, isSubmitting = false }) =
             disabled={isSubmitting}
           />
           <div className="flex justify-between items-center mt-1">
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-gray-400">
               {content.length}/2000 characters
             </span>
           </div>
@@ -77,13 +77,13 @@ const PostForm: React.FC<PostFormProps> = ({ onSubmit, isSubmitting = false }) =
 
         {/* Tags input */}
         <div className="mb-4">
-          <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="tags" className="block text-sm font-medium text-gray-200 mb-2">
             Tags (optional)
           </label>
           <input
             type="text"
             id="tags"
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            className="input-modern w-full"
             placeholder="burnout, interviews, promotion (comma-separated)"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
